@@ -3,7 +3,7 @@
 SELECT t1.idCliente, 
        t1.idTransacao,
        t2.IdProduto,
-       t1.QtdePontos,
+       sum(t1.QtdePontos) AS totalPontos,
        t3.DescNomeProduto,
        t3.DescCategoriaProduto
 
@@ -17,3 +17,7 @@ ON t2.IdProduto = t3.IdProduto
 
 WHERE t1.QtdePontos < 0 
 AND t3.DescCategoriaProduto LIKE 'lovers'
+
+GROUP BY idCliente
+ORDER BY totalPontos ASC
+
