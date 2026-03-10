@@ -11,7 +11,7 @@ ON t1.idCliente = t2.IdCliente
 
 WHERE t2.QtdePontos > 0
 
-GROUP BY t1.idCliente
+GROUP BY t1.idCliente, t2.DtCriacao
 ORDER BY sum(t2.QtdePontos) DESC
 
 LIMIT 15
