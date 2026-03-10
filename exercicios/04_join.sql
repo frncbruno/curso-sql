@@ -2,7 +2,7 @@
 
 SELECT t1.idCliente, 
        substr(t1.DtCriacao, 1, 10) AS data,
-       t2.QtdePontos
+       sum(t2.QtdePontos) AS QtdePontosTotal
 
 FROM clientes AS t1
 
@@ -11,6 +11,8 @@ ON t1.idCliente = t2.IdCliente
 
 WHERE t2.QtdePontos > 0
 
-ORDER BY t2.QtdePontos DESC
+GROUP BY t1.idCliente
+ORDER BY sum(t2.QtdePontos) DESC
 
-LIMIT 10
+LIMIT 15
+
