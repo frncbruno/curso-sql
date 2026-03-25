@@ -38,8 +38,8 @@ ORDER BY qtdeDiasCurso DESC
 ) 
 
 SELECT CAST(AVG(qtdeDiasCurso) AS DOUBLE) AS mediaDiasCurso, 
-      MAX (qtdeDiasCurso),
-      MIN (qtdeDiasCurso)
+      MAX(qtdeDiasCurso),
+      MIN(qtdeDiasCurso)
 FROM tb_clientes_dias
 
 -- O resultado da consulta será a média de dias que os clientes que iniciaram o curso no primeiro dia estiveram presentes durante o curso.
